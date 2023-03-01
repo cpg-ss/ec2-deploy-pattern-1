@@ -6,4 +6,10 @@
       yum: name=epel-release state=present
 
     - name: Install nginx
-      state: started
+      ansible.builtin.yum:
+        name: nginx
+        state: latest
+    - name: Start service httpd, if not started
+      ansible.builtin.service:
+        name: nginx
+        state: started
