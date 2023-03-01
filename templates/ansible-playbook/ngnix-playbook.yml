@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Install EPEL release for nginx
+      yum: name=epel-release state=present
+
+    - name: nginx
+      enabled: yes
+      state: started
